@@ -3,13 +3,19 @@
     <div class="event-card -shadow">
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h4 class="title">{{ event.title }}</h4>
+      <BaseIcon name="users"></BaseIcon>
       <span>{{ event.attendees.length }} attending</span>
     </div>
   </router-link>
 </template>
 
 <script>
+import BaseIcon from '@/components/BaseIcon.vue';
+
 export default {
+  components: {
+    BaseIcon,
+  },
   data() {
     return {
       event: {
