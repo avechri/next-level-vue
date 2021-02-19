@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    user: { id: 'abc123', name: 'Adam Huyadam' },
+    user: { id: 'abc123', name: 'Adam' },
     categories: ['sustainability',
       'nature',
       'animal welfare',
@@ -29,8 +29,7 @@ export default new Vuex.Store({
   },
   actions: {
     createEvent({ commit }, event) {
-      EventService.postEvent(event);
-      commit('ADD_EVENT', event);
+      return EventService.postEvent(event).then(() => commit('ADD_EVENT', event));
     },
   },
   modules: {
