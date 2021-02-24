@@ -1,7 +1,8 @@
+<!--suppress ES6ShorthandObjectProperty -->
 <template>
   <div>
-    <h1>Create an Event, {{ user.name }}</h1>
-    <form>
+    <h1>Create an Event</h1>
+    <form @submit.prevent="createEvent">
       <label>Select a category</label>
       <select v-model="event.category">
         <option
@@ -69,13 +70,56 @@
 import Datepicker from 'vuejs-datepicker';
 
 export default {
+  data() {
+    const times = [];
+    for (let i = 0; i < 24; i += 1) {
+      times.push(`${i}:00`);
+    }
+    return {
+      times,
+      event: this.createFreshEventObject(),
+    };
+  },
+  computed: {
+    categories() {
+      return this.$store.state.categories;
+    },
+  },
+  methods: {
+    createEvent() {
+      this.$store.dispatch('createEvent', this.event)
+        .then(() => this.$router.push({
+          name: 'event-show',
+          params: { id: this.event.id },
+        }),
+        this.event = this.createFreshEventObject)
+        .catch(() => console.log('There was a problem creating your event'));
+    },
+    createFreshEventObject() {
+      const { user } = this.$store.state;
+      const id = Math.floor(Math.random() * 10000000);
+      return {
+        id,
+        user,
+        category: '',
+        organizer: user,
+        title: '',
+        description: '',
+        location: '',
+        date: '',
+        time: '',
+        attendees: [],
+      };
+    },
+  },
   components: {
     Datepicker,
   },
 };
-
 </script>
 
 <style scoped>
-
+.field {
+  margin-bottom: 24px;
+}
 </style>
