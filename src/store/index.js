@@ -33,8 +33,8 @@ export default new Vuex.Store({
     createEvent({ commit }, event) {
       return EventService.postEvent(event).then(() => commit('ADD_EVENT', event));
     },
-    fetchEvents({ commit }) {
-      EventService.getEvents()
+    fetchEvents({ commit }, { perPage, page }) {
+      EventService.getEvents(perPage, page)
         .then((response) => {
           commit('SET_EVENT', response.data);
         })
