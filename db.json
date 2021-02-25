@@ -13,7 +13,9 @@
       "location": "Meow Town",
       "date": "2019-01-03T21:54:00.000Z",
       "time": "2:00",
-      "attendees": [4545]
+      "attendees": [
+        4545
+      ]
     },
     {
       "id": 2,
@@ -28,7 +30,9 @@
       "location": "Catlandia",
       "date": "2019-01-31T22:09:00.000Z",
       "time": "7:00",
-      "attendees": [456456]
+      "attendees": [
+        456456
+      ]
     },
     {
       "id": 1,
@@ -43,7 +47,150 @@
       "location": "Puptown ",
       "date": "2019-02-02T23:27:00.000Z",
       "time": "1:00",
-      "attendees": [4545545]
+      "attendees": [
+        4545545
+      ]
+    },
+    {
+      "id": 7863014,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "vystovka",
+      "description": "ghghj",
+      "location": "",
+      "date": "2021-02-12T14:13:00.000Z",
+      "time": "14:00",
+      "attendees": []
+    },
+    {
+      "id": 1001144,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Budet chto-to",
+      "description": "tytyty",
+      "location": "Forest",
+      "date": "2021-02-26T11:02:00.000Z",
+      "time": "18:00",
+      "attendees": []
+    },
+    {
+      "id": 5815337,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Tutle",
+      "description": "Descriptoion",
+      "location": "Home",
+      "date": "2021-03-19T11:05:00.000Z",
+      "time": "16:00",
+      "attendees": []
+    },
+    {
+      "id": 3,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": "Adam",
+      "title": "Cat Cabaret",
+      "description": "Yay felines!",
+      "location": "Meow Town",
+      "date": "2019-01-03T21:54:00.000Z",
+      "time": "2:00",
+      "attendees": [
+        4545
+      ]
+    },
+    {
+      "id": 2,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": "Adam",
+      "title": "Kitty Cluster",
+      "description": "Yay cats!",
+      "location": "Catlandia",
+      "date": "2019-01-31T22:09:00.000Z",
+      "time": "7:00",
+      "attendees": [
+        456456
+      ]
+    },
+    {
+      "id": 1,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": "Adam",
+      "title": "Puppy Parade",
+      "description": "Yay pups!",
+      "location": "Puptown ",
+      "date": "2019-02-02T23:27:00.000Z",
+      "time": "1:00",
+      "attendees": [
+        4545545
+      ]
+    },
+    {
+      "id": 7863014,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "vystovka",
+      "description": "ghghj",
+      "location": "",
+      "date": "2021-02-12T14:13:00.000Z",
+      "time": "14:00",
+      "attendees": []
+    },
+    {
+      "id": 1001144,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Budet chto-to",
+      "description": "tytyty",
+      "location": "Forest",
+      "date": "2021-02-26T11:02:00.000Z",
+      "time": "18:00",
+      "attendees": []
     }
   ]
 }
