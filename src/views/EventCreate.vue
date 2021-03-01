@@ -96,7 +96,7 @@ export default {
         .catch(() => console.log('There was a problem creating your event'));
     },
     createFreshEventObject() {
-      const { user } = this.$store.state;
+      const { user } = this.$store.state.user;
       const id = Math.floor(Math.random() * 10000000);
       return {
         id,
