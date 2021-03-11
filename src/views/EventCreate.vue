@@ -114,19 +114,12 @@ export default {
       return this.$store.getters['event/getEventByID'];
     },
     ...mapGetters('event', ['getEventById']), // import getters from user module
-    // useGetter() {
-    //   return this.$store.getters.doneTodos;
-    // },
-    // getterInGetter() {
-    //   return this.$store.getters.activeTodos;
-    // },
     catLength() {
       // efficient way of getting store state if used in multiple components
       return this.$store.getters.catLength;
     },
     ...mapState([
       'user',
-      // 'categories',
     ]),
   },
   components: {
