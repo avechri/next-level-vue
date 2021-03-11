@@ -68,6 +68,7 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   data() {
@@ -78,16 +79,12 @@ export default {
     return {
       times,
       event: this.createFreshEventObject(),
+      categories: this.$store.state.categories,
     };
-  },
-  computed: {
-    categories() {
-      return this.$store.state.categories;
-    },
   },
   methods: {
     createEvent() {
-      this.$store.dispatch('createEvent', this.event)
+      this.$store.dispatch('event/createEvent', this.event)
         .then(() => this.$router.push({
           name: 'event-show',
           params: { id: this.event.id },
@@ -96,7 +93,7 @@ export default {
         .catch(() => console.log('There was a problem creating your event'));
     },
     createFreshEventObject() {
-      const { user } = this.$store.state.user;
+      const { user } = this.$store.state.user.user;
       const id = Math.floor(Math.random() * 10000000);
       return {
         id,
@@ -111,6 +108,26 @@ export default {
         attendees: [],
       };
     },
+  },
+  computed: {
+    getEvent() {
+      return this.$store.getters['event/getEventByID'];
+    },
+    ...mapGetters('event', ['getEventById']), // import getters from user module
+    // useGetter() {
+    //   return this.$store.getters.doneTodos;
+    // },
+    // getterInGetter() {
+    //   return this.$store.getters.activeTodos;
+    // },
+    catLength() {
+      // efficient way of getting store state if used in multiple components
+      return this.$store.getters.catLength;
+    },
+    ...mapState([
+      'user',
+      // 'categories',
+    ]),
   },
   components: {
     Datepicker,
