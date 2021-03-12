@@ -4,6 +4,7 @@ import camelCase from 'lodash/camelCase';
 import App from './App.vue';
 import router from './router';
 import store from './store/index';
+import 'nprogress/nprogress.css';
 
 const requireComponent = require.context(
   './components',
