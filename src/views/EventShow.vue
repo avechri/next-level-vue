@@ -29,25 +29,14 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
-  props: {
-    id: {
-      // received from EventList>EventCard as router prop
-      type: [Number, String],
-      default: 10,
-    },
-  },
-  created() {
-    // this.$store.dispatch('event/fetchEvent', this.id) // simple way
-    this.fetchEvent(this.id); // using mapActions
-  },
+  props: ['id'],
   computed: mapState({
     // as object make event reference state.event.event
     event: (state) => state.event.event,
   }),
-  methods: mapActions('event', ['fetchEvent']), // ('nameSpace', ['actionsToMap'])
 };
 </script>
 
