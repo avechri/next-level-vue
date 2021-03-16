@@ -16,6 +16,7 @@ const router = new VueRouter({
       path: '/',
       name: 'event-list',
       component: EventList,
+      props: true,
     },
     {
       path: '/event/create',
