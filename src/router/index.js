@@ -33,7 +33,9 @@ const router = new VueRouter({
       component: EventShow,
       props: true,
       beforeEnter(routeTo, routeFrom, next) {
-        store.dispatch('event/fetchEvent', routeTo.params.id).then(() => {
+        store.dispatch('event/fetchEvent', routeTo.params.id).then((event) => {
+          // eslint-disable-next-line no-param-reassign
+          routeTo.params.event = event;
           next();
         });
       },
