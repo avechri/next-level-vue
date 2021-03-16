@@ -29,14 +29,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
-  props: ['id'],
-  computed: mapState({
-    // as object make event reference state.event.event
-    event: (state) => state.event.event,
-  }),
+  props: {
+    event: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 
