@@ -69,6 +69,7 @@
 <script>
 import Datepicker from 'vuejs-datepicker';
 import { mapGetters, mapState } from 'vuex';
+import NProgress from 'nprogress';
 
 export default {
   data() {
@@ -84,13 +85,16 @@ export default {
   },
   methods: {
     createEvent() {
+      NProgress.start();
       this.$store.dispatch('event/createEvent', this.event)
         .then(() => this.$router.push({
           name: 'event-show',
           params: { id: this.event.id },
         }),
         this.event = this.createFreshEventObject)
-        .catch(() => {});
+        .catch(() => {
+          NProgress.done();
+        });
     },
     createFreshEventObject() {
       const { user } = this.$store.state.user.user;
