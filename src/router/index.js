@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import EventShow from '@/views/EventShow.vue';
 import NProgress from 'nprogress';
 import store from '@/store/index';
+import NotFound from '@/views/NotFound.vue';
 import EventCreate from '../views/EventCreate.vue';
 import EventList from '../views/EventList.vue';
 
@@ -44,6 +45,15 @@ const router = new VueRouter({
     {
       path: '*',
       redirect: { name: 'event-list' }, // redirect to home page
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: NotFound,
+    },
+    {
+      path: '*',
+      redirect: { name: '404' },
     },
   ],
 });
