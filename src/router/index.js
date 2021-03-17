@@ -40,7 +40,13 @@ const router = new VueRouter({
           // eslint-disable-next-line no-param-reassign
           routeTo.params.event = event;
           next();
-        }).catch(() => next({ name: '404', params: { resource: 'event' } }));
+        }).catch((error) => {
+          if (error.response && error.response.status === 404) {
+            next({ name: '404', params: { resource: 'event' } });
+          } else {
+            next({ name: 'network-issue' });
+          }
+        });
       },
     },
     {
