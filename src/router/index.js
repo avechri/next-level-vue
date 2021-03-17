@@ -39,7 +39,7 @@ const router = new VueRouter({
           // eslint-disable-next-line no-param-reassign
           routeTo.params.event = event;
           next();
-        });
+        }).catch(() => next({ name: '404', params: { resource: 'event' } }));
       },
     },
     {
@@ -50,10 +50,11 @@ const router = new VueRouter({
       path: '/404',
       name: '404',
       component: NotFound,
+      props: true,
     },
     {
       path: '*',
-      redirect: { name: '404' },
+      redirect: { name: '404', params: { resource: 'page' } },
     },
   ],
 });
