@@ -61,7 +61,7 @@ export const actions = {
       });
   },
   // eslint-disable-next-line consistent-return
-  fetchEvent({ commit, getters, dispatch }, id) {
+  fetchEvent({ commit, getters }, id) {
     const event = getters.getEventById(id);
     if (event) {
       commit('SET_EVENT', event);
@@ -71,13 +71,6 @@ export const actions = {
       .then((response) => {
         commit('SET_EVENT', response.data);
         return response.data;
-      })
-      .catch((error) => {
-        const notification = {
-          type: 'error',
-          message: `There was a problem fetching event: ${error.message}`,
-        };
-        dispatch('notification/add', notification, { root: true });
       });
   },
 };
