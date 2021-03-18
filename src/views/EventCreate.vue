@@ -13,26 +13,16 @@
         </option>
       </select>
       <h3>Name & describe your event</h3>
-      <BaseInput label="Title" v-model="event.title" type="text" placeholder="Title" />
+      <BaseInput label="Title" v-model="event.title" type="text" placeholder="Title" class="field"/>
       //placeholder&type is here because if we wanna have a dynamic input it should be in the parent
 
-      <div class="field">
-        <label>Description</label>
-        <input
-          v-model="event.description"
-          type="text"
-          placeholder="Add a description"
-        >
-      </div>
+      <BaseInput label="Description" v-model="event.description"
+                 type="text" placeholder="Description" class="field"/>
+
       <h3>Where is your event?</h3>
-      <div class="field">
-        <label>Location</label>
-        <input
-          v-model="event.location"
-          type="text"
-          placeholder="Add a location"
-        >
-      </div>
+      <BaseInput label="Location" v-model="event.Location"
+                 type="text" placeholder="Location" class="field"/>
+
       <h3>When is your event?</h3>
       <div class="field">
         <label>Date</label>
