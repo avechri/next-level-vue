@@ -1,13 +1,16 @@
 <template>
 <div>
-  <button v-on="$listeners" class="button" :class="buttonClass">
+  <button v-on="$listeners" v-bind="$attrs" class="button" :class="buttonClass">
     <slot/>
   </button>
 </div>
 </template>
 
+// I dont use $attrs in dynamic class because its not going to work with styles, that's why props
+// but I use $attrs anyway because I wanna inherit another attributes on that button element
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     buttonClass: {
       type: String,
