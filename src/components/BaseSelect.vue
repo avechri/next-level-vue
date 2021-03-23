@@ -4,13 +4,16 @@
 //ability to send up selected data
 // info is similar to BaseInput comp sp copy paste this code first & change what i need to change
 
+// if option === value that was choosen it becomes selected option
+
 <template>
   <div>
     <label v-if="label">{{ label }}}</label>
     <select :value="value" @input="updateValue" v-bind="$attrs">
       <option
-        v-for="oprion in options"
-        :key="oprion"
+        v-for="option in options"
+        :key="option"
+        :selected="option === value"
       >{{ option }}</option>>
     </select>>
   </div>
