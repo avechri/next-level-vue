@@ -4,14 +4,8 @@
     <h1>Create an Event</h1>
     <form @submit.prevent="createEvent">
       <label>Select a category</label>
-      <select v-model="event.category">
-        <option
-          v-for="cat in categories"
-          :key="cat"
-        >
-          {{ cat }}
-        </option>
-      </select>
+      <BaseSelect label="Select a category" :options="categories"/>
+
       <h3>Name & describe your event</h3>
       <BaseInput label="Title" v-model="event.title" type="text" placeholder="Title" class="field"/>
       //placeholder&type is here because if we wanna have a dynamic input it should be in the parent
@@ -55,6 +49,7 @@
 import Datepicker from 'vuejs-datepicker';
 import { mapGetters, mapState } from 'vuex';
 import NProgress from 'nprogress';
+import BaseSelect from '@/components/BaseSelect.vue';
 
 export default {
   data() {
@@ -112,6 +107,7 @@ export default {
     ]),
   },
   components: {
+    BaseSelect,
     Datepicker,
   },
 };
