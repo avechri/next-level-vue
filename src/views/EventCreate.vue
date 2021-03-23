@@ -4,7 +4,7 @@
     <h1>Create an Event</h1>
     <form @submit.prevent="createEvent">
       <label>Select a category</label>
-      <BaseSelect label="Select a category" :options="categories"/>
+      <BaseSelect label="Select a category" :options="categories" v-model="event.category"/>
 
       <h3>Name & describe your event</h3>
       <BaseInput label="Title" v-model="event.title" type="text" placeholder="Title" class="field"/>
