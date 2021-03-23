@@ -1,6 +1,6 @@
 <template>
 <div>
-  <button v-on="$listeners">
+  <button v-on="$listeners" class="button" :class="buttonClass">
     <slot/>
   </button>
 </div>
@@ -8,7 +8,11 @@
 
 <script>
 export default {
-  name: 'BaseButton',
+  props: {
+    buttonClass: {
+      type: String,
+    },
+  },
 };
 </script>
 
