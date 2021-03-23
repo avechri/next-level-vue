@@ -3,7 +3,6 @@
   <div>
     <h1>Create an Event</h1>
     <form @submit.prevent="createEvent">
-      <label>Select a category</label>
       <BaseSelect label="Select a category" :options="categories" v-model="event.category"/>
 
       <h3>Name & describe your event</h3>
@@ -25,17 +24,9 @@
           placeholder="Select a date"
         />
       </div>
-      <div class="field">
-        <label>Select a time</label>
-        <select v-model="event.time">
-          <option
-            v-for="time in times"
-            :key="time"
-          >
-            {{ time }}
-          </option>
-        </select>
-      </div>
+
+        <BaseSelect label="Select a time" :options="times" v-model="event.time" class="field"/>
+
       <input
         type="submit"
         class="button -fill-gradient"
