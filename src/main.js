@@ -1,10 +1,13 @@
 import Vue from 'vue';
+import Vuelidate from 'vuelidate/src';
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import App from './App.vue';
 import router from './router';
 import store from './store/index';
 import 'nprogress/nprogress.css';
+
+Vue.use(Vuelidate);
 
 const requireComponent = require.context(
   './components',
