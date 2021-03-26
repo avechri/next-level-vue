@@ -87,7 +87,11 @@
 <!--        class="button -fill-gradient"-->
 <!--        value="Submit"-->
 <!--      >-->
-      <BaseButton type="submit" buttonClass="-fill-gradient">Submit</BaseButton>
+      <BaseButton
+        type="submit"
+        buttonClass="-fill-gradient"
+      :disabled="$v.$anyError">Submit</BaseButton>
+      <p v-if="$v.$anyError" class="errorMessage">Please fill out the required field(s).</p>
     </form>
   </div>
 </template>
@@ -122,16 +126,19 @@ export default {
   },
   methods: {
     createEvent() {
-      NProgress.start();
-      this.$store.dispatch('event/createEvent', this.event)
-        .then(() => this.$router.push({
-          name: 'event-show',
-          params: { id: this.event.id },
-        }),
-        this.event = this.createFreshEventObject)
-        .catch(() => {
-          NProgress.done();
-        });
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        NProgress.start();
+        this.$store.dispatch('event/createEvent', this.event)
+          .then(() => this.$router.push({
+            name: 'event-show',
+            params: { id: this.event.id },
+          }),
+          this.event = this.createFreshEventObject)
+          .catch(() => {
+            NProgress.done();
+          });
+      }
     },
     createFreshEventObject() {
       const { user } = this.$store.state.user.user;
